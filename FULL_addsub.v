@@ -1,8 +1,8 @@
-module FULL_addsub(a,b,cin,sum,carry,BO,DIFF);
-input a,b,cin;
+module FULL_addsub(a,b,Cin,sum,carry,BO,DIFF);
+input a,b,Cin;
 output sum,carry,BO,DIFF;
-//Write syntax for full adder sum and carry in date flow modelling 
-wire a0;
-not (a0,a);
-//Write syntax for full subtractor Borrow and Difference in date flow modelling
+assign sum = a^b^Cin;
+assign carry = (a&b)|(a&Cin)|(b&Cin);
+assign DIFF = a^b^Cin;
+assign BO = (~a & b)|(~(a^b)&Cin);
 endmodule
